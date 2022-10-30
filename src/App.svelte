@@ -5,7 +5,9 @@
 </script>
 
 <Navbar />
-<Router {routes} />
+<div class="container">
+  <Router {routes} />
+</div>
 
 <style>
 </style>
