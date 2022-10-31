@@ -6,7 +6,9 @@
 
 <Navbar />
 <div class="container mt-2">
-  <Router {routes} />
+  <div class="card-panel orange lighten-5">
+    <Router {routes} />
+  </div>
 </div>
 
 <style>
