@@ -10,5 +10,4 @@
     </code></pre>
 
 <style>
-  /* your styles go here */
 </style>

@@ -2,17 +2,22 @@
   import { link, push } from "svelte-spa-router";
 </script>
 
-<div class="row">
-  <div class="col s7">
+<div class="row valign-wrapper">
+  <div class="col s12 center-align">
+    <h1>Introducción</h1>
+  </div>
+</div>
+<div class="row valign-wrapper">
+  <div class="col s6 ">
     <div class="center-align">
-      <h1>Introducción</h1>
       <img
-        class="center-align"
+        class="center-align "
+        alt="Not found"
         src="https://firebasestorage.googleapis.com/v0/b/svelte-charla.appspot.com/o/unnamed.png?alt=media&token=e22dddd8-1505-43da-9dc1-0e59e40437f4"
-      />
+        />
     </div>
   </div>
-  <div class="col s5">
+  <div class="col s6">
     <div class="divider" />
     <div class="section">
       <h5>¿Quien soy?</h5>
@@ -65,5 +70,10 @@
 <style>
   .bold {
     font-weight: bold;
+  }
+  .center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
   }
 </style>

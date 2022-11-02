@@ -5,11 +5,15 @@
 </script>
 
 <Navbar />
-<div class="container mt-2">
-  <div class="card-panel orange lighten-5">
+<div class="container content-panel">
+  <div class="card-panel orange lighten-5 content-panel">
     <Router {routes} />
   </div>
 </div>
 
 <style>
+  .content-panel{
+    margin-top: 10px !important;
+    min-height: 90vh !important;
+  }
 </style>

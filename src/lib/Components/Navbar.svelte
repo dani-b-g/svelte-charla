@@ -5,7 +5,7 @@
 </script>
 
 <nav>
-  <div class="nav-wrapper">
+  <div class="nav-wrapper ">
     <a href="/" class="brand-logo right">Svelte </a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li><a href="/" use:link>Introduccion</a></li>
@@ -24,4 +24,7 @@
 </nav>
 
 <style>
+  nav{
+    background-color: #3F649F !important;
+  }
 </style>
