@@ -6,14 +6,20 @@
 
 <Navbar />
 <div class="container content-panel">
-  <div class="card-panel orange lighten-5 content-panel">
+  <div class="card-panel float-container">
     <Router {routes} />
   </div>
 </div>
 
 <style>
   .content-panel{
-    margin-top: 10px !important;
-    min-height: 90vh !important;
+    min-height: 80vh !important;
+    padding-top: 7vh !important;
+    
+  }
+  .float-container{
+    background-color: rgba(5, 171, 232, 0.7) !important;
+    min-height: 80vh !important;
+
   }
 </style>

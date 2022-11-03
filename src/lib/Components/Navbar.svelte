@@ -26,5 +26,7 @@
 <style>
   nav{
     background-color: #3F649F !important;
+    position: fixed !important;
+  
   }
 </style>

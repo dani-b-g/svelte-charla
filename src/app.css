@@ -1,9 +1,7 @@
 body {
-    background: rgb(2,0,36);
-    background: -moz-radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(63,100,159,1) 10%, rgba(5,172,232,0.5) 100%);
-    background: -webkit-radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(63,100,159,1) 10%, rgba(5,172,232,0.5) 100%);
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(63,100,159,1) 10%, rgba(5,172,232,0.5) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#05ace8",GradientType=1);
-    background-attachment: fixed;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/svelte-charla.appspot.com/o/FondoRascacielos.jfif?alt=media&token=0b9a544f-10b2-4fa9-a4c2-0b0089d1b1a0");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size:cover
 
-  }
+}
