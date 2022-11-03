@@ -5,21 +5,19 @@
 </script>
 
 <Navbar />
-<div class="container content-panel">
+<div class="container content-panel white-text">
   <div class="card-panel float-container">
     <Router {routes} />
   </div>
 </div>
 
 <style>
-  .content-panel{
+  .content-panel {
     min-height: 80vh !important;
     padding-top: 7vh !important;
-    
   }
-  .float-container{
-    background-color: rgba(5, 171, 232, 0.7) !important;
+  .float-container {
+    background-color: rgba(75, 75, 75, 0.753) !important;
     min-height: 80vh !important;
-
   }
 </style>

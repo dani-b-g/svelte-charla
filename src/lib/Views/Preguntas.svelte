@@ -1,4 +1,6 @@
 <script>
+  // @ts-nocheck
+
   import { onMount, onDestroy, beforeUpdate, afterUpdate, tick } from "svelte";
   import { db } from "../../firebase.js";
   import {
@@ -12,44 +14,124 @@
     snapshotEqual,
   } from "firebase/firestore";
   import sw from "sweetalert2";
-
-  let formEstado = undefined;
-  let formPregunta = undefined;
+  let disabledAddBtn = true;
+  let formEstado = true;
+  let formPregunta = "";
   let preguntas = [];
 
-  onMount(() => {});
-
-  async function addQuestion() {
-    try {
-      await addDoc(collection(db, "Preguntas"), {
-        Estado: formEstado,
-        Pregunta: formPregunta,
-      });
-      console.log("Guardado correctamente");
-      formEstado = "";
-      formPregunta = "";
-      sw.fire(
-        "Pregunta creada",
-        "La pregunta ha sido creada correctamente y se mostrara en la tabla.",
-        "success"
-      );
-    } catch (error) {
-      console.log(error);
-      sw.fire("Error al crear la pregunta", error, "error");
+  $: {
+    if (formPregunta.length >= 5) {
+      disabledAddBtn = false;
+    } else {
+      disabledAddBtn = true;
     }
   }
+
+  /**
+   * Recupera constantemente todos los cambios generados en la BBDD
+   */
   onSnapshot(
     collection(db, "preguntas"),
     (querySnapshot) => {
-      preguntas = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
+      preguntas = querySnapshot.docs.map(function (doc) {
+        return {
+          ...doc.data(),
+          id: doc.id,
+        };
+      });
     },
     (error) => {
       console.log(error);
     }
   );
+  /**
+   * Añade la pregunta a la colección.
+   */
+  async function addQuestion() {
+    try {
+      await addDoc(collection(db, "preguntas"), {
+        Estado: formEstado,
+        Pregunta: formPregunta,
+      });
+      console.log("Guardado correctamente");
+      formPregunta = "";
+      sw.fire({
+        title: "Pregunta creada",
+        text: "La pregunta ha sido creada correctamente.",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+      });
+    } catch (error) {
+      console.log(error);
+      sw.fire("Error al crear la pregunta", error.toString(), "error");
+    }
+  }
+  /**
+   *
+   * @param id Id que se recibe de la coleccion para identificar el eliinado
+   */
+  async function deleteQuestion(id) {
+    try {
+      await sw
+        .fire({
+          title: "Vas a elimar la tarea",
+          text: "¿Estás seguro?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Eliminar",
+        })
+        .then(async (result) => {
+          if (result.isConfirmed) {
+            await deleteDoc(doc(db, "preguntas", id)).then(() => {
+              console.log("Pregunta eliminada");
+              sw.fire({
+                title: "Pregunta eliminada",
+                text: "La pregunta ha sido eliminada correctamente.",
+                icon: "success",
+                timer: 2000,
+                timerProgressBar: true,
+              });
+            });
+          }
+        });
+    } catch (error) {
+      sw.fire("Error al eliminar la pregunta", error.toString(), "error");
+    }
+  }
+  async function setDone(id, inPregunta) {
+    try {
+      await sw
+        .fire({
+          title: "Estas a punto de marcar como resuelta la pregunta",
+          text: "¿Estás seguro?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Resuelta",
+        })
+        .then(async function (result) {
+          if (result.isConfirmed) {
+            await updateDoc(doc(db, "preguntas", id), {
+              Pregunta: inPregunta,
+              Estado: false,
+            });
+            sw.fire({
+              title: "Pregunta completa",
+              text: "La pregunta ha sido completada correctamente.",
+              icon: "success",
+              timer: 2000,
+              timerProgressBar: true,
+            });
+          }
+        });
+    } catch (error) {
+      sw.fire("Error al actualizar la pregunta", error.toString(), "error");
+    }
+  }
 </script>
 
 <div class="row valign-wrapper">
@@ -57,37 +139,95 @@
     <h1>Preguntas</h1>
   </div>
 </div>
+<div class="row ">
+  <div class="col col offset-s s9 ">
+    <div class="input-field">
+      <i class="material-icons prefix">chat</i>
+      <input id="pregunta" bind:value={formPregunta} type="text" />
+      <label for="pregunta">Pregunta</label>
+    </div>
+  </div>
+  <div class="col col offset-s1 s2 center">
+    <div class="input-field">
+      <button
+        disabled={disabledAddBtn}
+        on:click={addQuestion}
+        class="waves-effect waves-light btn btn-custom-color"
+      >
+        <i class="material-icons right">add</i>Añadir
+      </button>
+    </div>
+  </div>
+</div>
+<div class="divider" />
 <div class="row">
-  <div class="col offset-s1 s10 center-align offset-s1">
+  <div class="col s10 offset-s1 center-align offset-s1">
     <table class="responsive-table centered striped">
       <thead>
         <tr>
-            <th>Pregunta</th>
-            <th>Estado</th>
-            <th>Botones</th>
+          <th>Pregunta</th>
+          <th>Estado</th>
+          <th>Botones</th>
         </tr>
       </thead>
       <tbody>
         {#each preguntas as p}
-        <tr>
-          <td>{p.Pregunta}</td>
-          <td>{p.Estado}</td>
-          <td>
-            <button class="btn waves-effect waves-light green lighten-1">Submit
-              <i class="material-icons right">check</i>
-            </button>
-          </td>
-        </tr>
+          <tr>
+            <td>{p.Pregunta}</td>
+            {#if p.Estado}
+              <td>Activa</td>
+            {:else}
+              <td>Resuelta</td>
+            {/if}
+            <td>
+              {#if p.Estado}
+                <button
+                  on:click={setDone(p.id, p.Pregunta)}
+                  class="btn-small waves-effect waves-light green lighten-1"
+                >
+                  <i class="material-icons center">check</i>
+                </button>
+              {/if}
+              <button
+                on:click={deleteQuestion(p.id)}
+                class="btn-small waves-effect waves-light red lighten-1"
+              >
+                <i class="material-icons center">delete_forever</i>
+              </button>
+            </td>
+          </tr>
         {:else}
-           <!-- empty list -->
+          <h2>No se han realizado preguntas aun.</h2>
         {/each}
       </tbody>
     </table>
   </div>
-
 </div>
+
 <style>
-  /* your styles go here */
-  /* para fondo de tabla */
-  /* rgba(5,172,232,0.4514180672268907) */
+  /* label focus color */
+  .input-field input[type="text"]:focus + label {
+    color: rgb(255, 255, 255) !important;
+  }
+  /* label underline focus color */
+  .input-field input[type="text"]:focus {
+    border-bottom: 1px solid rgb(255, 255, 255) !important;
+    box-shadow: 0 1px 0 0 rgb(255, 255, 255) !important;
+  }
+  .input-field [type="text"] {
+    color: white;
+  }
+  i {
+    color: rgb(255, 255, 255) !important;
+  }
+  label {
+    color: rgb(255, 255, 255) !important;
+  }
+
+  .center {
+    margin: auto;
+  }
+  .btn-custom-color {
+    background-color: #3085d6;
+  }
 </style>
