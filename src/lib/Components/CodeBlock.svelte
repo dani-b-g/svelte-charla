@@ -1,30 +1,23 @@
 <script>
-    
-    import Prism from 'prismjs';
-    // import 'prismjs/themes/prism-tomorrow.css'
-    // import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-    // import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
-    // import 'prismjs/themes/'
-    import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
-    import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-    import 'prismjs/themes/prism-tomorrow.css'
+  import Prism from "prismjs";
 
+  import "prismjs/themes/prism-tomorrow.css";
+  import "prismjs/plugins/line-numbers/prism-line-numbers.js";
+  import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 
+  export let code = undefined;
 
-    
-    export let code = undefined;
+  setTimeout(() => {
+    Prism.highlightAll();
+  }, 0);
 </script>
 
-
-<div>
-    <pre class=" line-numbers language-js ">
-        <code >
+<pre data-start="0" class=" line-numbers language-javascript ">
+        <code class="language-javascript">
+            <!-- prettier-ignore -->
             {@html Prism.highlight(code, Prism.languages.javascript,'javascript')}
         </code>
-    </pre>
-</div>
-
+ </pre>
 
 <style>
-   
 </style>
