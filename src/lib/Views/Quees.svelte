@@ -1,13 +1,18 @@
 <script>
+	import CodeBlock from './../Components/CodeBlock.svelte';
   // your script goes here
+
+  let code=`console.log('Hola mundo');`
+  
 </script>
 
 <h1>¿Que es Svelte?</h1>
-<pre><code class="language-js line-numbers">
-    import Navbar from "./lib/Components/Navbar.svelte";
-    import Router from "svelte-spa-router";
-    import routes from "./routes.js";
-    </code></pre>
 
-<style>
+<CodeBlock {code}></CodeBlock>
+
+<!-- <pre><code class="language-js line-numbers">
+    
+    </code></pre>
+-->
+<style> 
 </style>
