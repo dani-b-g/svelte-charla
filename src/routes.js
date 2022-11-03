@@ -7,6 +7,7 @@ import BloquesLogicos from "./lib/Views/BloquesLogicos.svelte";
 import Stores from "./lib/Views/Stores.svelte";
 import SvelteKit from "./lib/Views/SvelteKit.svelte";
 import Preguntas from "./lib/Views/Preguntas.svelte";
+import Reactivos from "./lib/Views/Reactivos.svelte";
 
 const routes = {
   "/": Introduccion,
@@ -16,6 +17,7 @@ const routes = {
   "/BloquesLogicos": BloquesLogicos,
   "/stores": Stores,
   "/sveltekit": SvelteKit,
+  "/reactivos": Reactivos,
   "/preguntas": Preguntas,
   "*": Error404,
 };

@@ -7,14 +7,14 @@
     <h1>Introducción</h1>
   </div>
 </div>
-<div class="row valign-wrapper">
+<div class="row valign-wrapper ">
   <div class="col s6 ">
     <div class="center-align">
       <img
         class="center-align "
         alt="Not found"
         src="https://firebasestorage.googleapis.com/v0/b/svelte-charla.appspot.com/o/unnamed.png?alt=media&token=e22dddd8-1505-43da-9dc1-0e59e40437f4"
-        />
+      />
     </div>
   </div>
   <div class="col s6">
