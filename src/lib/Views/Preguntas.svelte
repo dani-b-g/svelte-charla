@@ -161,47 +161,51 @@
 </div>
 <div class="divider" />
 <div class="row">
-  <div class="col s10 offset-s1 center-align offset-s1">
-    <table class="responsive-table centered striped">
-      <thead>
-        <tr>
-          <th>Pregunta</th>
-          <th>Estado</th>
-          <th>Botones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {#each preguntas as p}
+  {#if preguntas.length > 0}
+    <div class="col s10 offset-s1 center-align offset-s1">
+      <table class="responsive-table centered striped">
+        <thead>
           <tr>
-            <td>{p.Pregunta}</td>
-            {#if p.Estado}
-              <td>Activa</td>
-            {:else}
-              <td>Resuelta</td>
-            {/if}
-            <td>
-              {#if p.Estado}
-                <button
-                  on:click={setDone(p.id, p.Pregunta)}
-                  class="btn-small waves-effect waves-light green lighten-1"
-                >
-                  <i class="material-icons center">check</i>
-                </button>
-              {/if}
-              <button
-                on:click={deleteQuestion(p.id)}
-                class="btn-small waves-effect waves-light red lighten-1"
-              >
-                <i class="material-icons center">delete_forever</i>
-              </button>
-            </td>
+            <th>Pregunta</th>
+            <th>Estado</th>
+            <th>Botones</th>
           </tr>
-        {:else}
-          <h2>No se han realizado preguntas aun.</h2>
-        {/each}
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          {#each preguntas as p}
+            <tr>
+              <td>{p.Pregunta}</td>
+              {#if p.Estado}
+                <td>Activa</td>
+              {:else}
+                <td>Resuelta</td>
+              {/if}
+              <td>
+                {#if p.Estado}
+                  <button
+                    on:click={setDone(p.id, p.Pregunta)}
+                    class="btn-small waves-effect waves-light green lighten-1"
+                  >
+                    <i class="material-icons center">check</i>
+                  </button>
+                {/if}
+                <button
+                  on:click={deleteQuestion(p.id)}
+                  class="btn-small waves-effect waves-light red lighten-1"
+                >
+                  <i class="material-icons center">delete_forever</i>
+                </button>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+  {:else}
+    <div class="col s12 center-align ">
+      <h2>No se han realizado preguntas aun.</h2>
+    </div>
+  {/if}
 </div>
 
 <style>
