@@ -20,7 +20,8 @@
   let preguntas = [];
 
   $: {
-    if (formPregunta.length >= 5) {
+    console.log("entraAaaaaaa");
+    if (formPregunta.length >= 5 && formPregunta.length <= 165) {
       disabledAddBtn = false;
     } else {
       disabledAddBtn = true;
@@ -143,8 +144,18 @@
   <div class="col col offset-s s9 ">
     <div class="input-field">
       <i class="material-icons prefix">chat</i>
-      <input id="pregunta" bind:value={formPregunta} type="text" />
-      <label for="pregunta">Pregunta</label>
+      <input
+        id="pregunta"
+        bind:value={formPregunta}
+        type="text"
+        data-length="165"
+        length="165"
+        class="validate"
+      />
+      <label for="pregunta">Inserte aqui su pregunta</label>
+      <span class="helper-text right-align" style="color:#fff"
+        >{`${formPregunta.length}/165`}</span
+      >
     </div>
   </div>
   <div class="col col offset-s1 s2 center">
@@ -161,47 +172,51 @@
 </div>
 <div class="divider" />
 <div class="row">
-  <div class="col s10 offset-s1 center-align offset-s1">
-    <table class="responsive-table centered striped">
-      <thead>
-        <tr>
-          <th>Pregunta</th>
-          <th>Estado</th>
-          <th>Botones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {#each preguntas as p}
+  {#if preguntas.length > 0}
+    <div class="col s10 offset-s1 center-align offset-s1">
+      <table class="responsive-table centered striped">
+        <thead>
           <tr>
-            <td>{p.Pregunta}</td>
-            {#if p.Estado}
-              <td>Activa</td>
-            {:else}
-              <td>Resuelta</td>
-            {/if}
-            <td>
-              {#if p.Estado}
-                <button
-                  on:click={setDone(p.id, p.Pregunta)}
-                  class="btn-small waves-effect waves-light green lighten-1"
-                >
-                  <i class="material-icons center">check</i>
-                </button>
-              {/if}
-              <button
-                on:click={deleteQuestion(p.id)}
-                class="btn-small waves-effect waves-light red lighten-1"
-              >
-                <i class="material-icons center">delete_forever</i>
-              </button>
-            </td>
+            <th>Pregunta</th>
+            <th>Estado</th>
+            <th>Botones</th>
           </tr>
-        {:else}
-          <h2>No se han realizado preguntas aun.</h2>
-        {/each}
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          {#each preguntas as p}
+            <tr>
+              <td>{p.Pregunta}</td>
+              {#if p.Estado}
+                <td>Activa</td>
+              {:else}
+                <td>Resuelta</td>
+              {/if}
+              <td>
+                {#if p.Estado}
+                  <button
+                    on:click={setDone(p.id, p.Pregunta)}
+                    class="btn-small waves-effect waves-light green lighten-1"
+                  >
+                    <i class="material-icons center">check</i>
+                  </button>
+                {/if}
+                <button
+                  on:click={deleteQuestion(p.id)}
+                  class="btn-small waves-effect waves-light red lighten-1"
+                >
+                  <i class="material-icons center">delete_forever</i>
+                </button>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+  {:else}
+    <div class="col s12 center-align ">
+      <h2>No se han realizado preguntas aun.</h2>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -214,8 +229,15 @@
     border-bottom: 1px solid rgb(255, 255, 255) !important;
     box-shadow: 0 1px 0 0 rgb(255, 255, 255) !important;
   }
+  /* En caso de default eliminar el bgcolor */
   .input-field [type="text"] {
     color: white;
+    background-color: rgba(34, 33, 33, 0.219) !important;
+  }
+  /* invalid color */
+  .input-field input[type="text"].invalid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
   }
   i {
     color: rgb(255, 255, 255) !important;
