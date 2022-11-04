@@ -20,7 +20,8 @@
   let preguntas = [];
 
   $: {
-    if (formPregunta.length >= 5) {
+    console.log("entraAaaaaaa");
+    if (formPregunta.length >= 5 && formPregunta.length <= 165) {
       disabledAddBtn = false;
     } else {
       disabledAddBtn = true;
@@ -143,8 +144,18 @@
   <div class="col col offset-s s9 ">
     <div class="input-field">
       <i class="material-icons prefix">chat</i>
-      <input id="pregunta" bind:value={formPregunta} type="text" />
-      <label for="pregunta">Pregunta</label>
+      <input
+        id="pregunta"
+        bind:value={formPregunta}
+        type="text"
+        data-length="165"
+        length="165"
+        class="validate"
+      />
+      <label for="pregunta">Inserte aqui su pregunta</label>
+      <span class="helper-text right-align" style="color:#fff"
+        >{`${formPregunta.length}/165`}</span
+      >
     </div>
   </div>
   <div class="col col offset-s1 s2 center">
@@ -218,8 +229,15 @@
     border-bottom: 1px solid rgb(255, 255, 255) !important;
     box-shadow: 0 1px 0 0 rgb(255, 255, 255) !important;
   }
+  /* En caso de default eliminar el bgcolor */
   .input-field [type="text"] {
     color: white;
+    background-color: rgba(34, 33, 33, 0.219) !important;
+  }
+  /* invalid color */
+  .input-field input[type="text"].invalid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
   }
   i {
     color: rgb(255, 255, 255) !important;
