@@ -17,14 +17,20 @@
   let disabledAddBtn = true;
   let formEstado = true;
   let formPregunta = "";
+  let formUser = "";
   let preguntas = [];
 
   $: {
-    console.log("entraAaaaaaa");
     if (formPregunta.length >= 5 && formPregunta.length <= 165) {
       disabledAddBtn = false;
     } else {
       disabledAddBtn = true;
+    }
+  }
+
+  function onKeyPress(k) {
+    if (k.charCode===13 && !disabledAddBtn) {
+      addQuestion()
     }
   }
 
@@ -53,6 +59,7 @@
       await addDoc(collection(db, "preguntas"), {
         Estado: formEstado,
         Pregunta: formPregunta,
+        Usuario: formUser,
       });
       console.log("Guardado correctamente");
       formPregunta = "";
@@ -141,14 +148,35 @@
   </div>
 </div>
 <div class="row ">
-  <div class="col col offset-s s9 ">
+  <div class="col offset-s s3 ">
+    <div class="input-field">
+      <i class="material-icons prefix">person</i>
+      <input
+        id="usuario"
+        bind:value={formUser}
+        on:keypress={onKeyPress}
+        type="text"
+        data-length="25"
+        data-min-length="5"
+        length="25"
+        class="validate"
+      />
+      <label for="usuario">Cual es tu nombre</label>
+      <span class="helper-text right-align" style="color:#fff"
+        >{`${formUser.length}/25`}</span
+      >
+    </div>
+  </div>
+  <div class="col offset-s s6 ">
     <div class="input-field">
       <i class="material-icons prefix">chat</i>
       <input
         id="pregunta"
         bind:value={formPregunta}
+        on:keypress={onKeyPress}
         type="text"
         data-length="165"
+        data-min-length="5"
         length="165"
         class="validate"
       />
@@ -178,6 +206,7 @@
         <thead>
           <tr>
             <th>Pregunta</th>
+            <th>Usuario</th>
             <th>Estado</th>
             <th>Botones</th>
           </tr>
@@ -186,6 +215,7 @@
           {#each preguntas as p}
             <tr>
               <td>{p.Pregunta}</td>
+              <td>{p.Usuario}</td>
               {#if p.Estado}
                 <td>Activa</td>
               {:else}
