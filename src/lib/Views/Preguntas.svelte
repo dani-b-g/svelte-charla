@@ -20,7 +20,6 @@
   let preguntas = [];
 
   $: {
-    console.log("entraAaaaaaa");
     if (formPregunta.length >= 5 && formPregunta.length <= 165) {
       disabledAddBtn = false;
     } else {
@@ -149,6 +148,7 @@
         bind:value={formPregunta}
         type="text"
         data-length="165"
+        data-min-length="5"
         length="165"
         class="validate"
       />
