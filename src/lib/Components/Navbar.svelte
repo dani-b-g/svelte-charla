@@ -4,7 +4,7 @@
   import Introduccion from "../Views/Introduccion.svelte";
 </script>
 
-<div class="nabar-fixed">
+<div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper ">
       <a href="/" class="brand-logo right">Svelte </a>
@@ -24,8 +24,6 @@
       </ul>
     </div>
   </nav>
-
-  
 </div>
 
 <style>
@@ -34,10 +32,10 @@
   }
   nav .brand-logo {
     font-size: 1.3rem;
-}
-@media (min-width: 600px) {
-  nav .brand-logo {
-    font-size: 2.1rem;
   }
-}
+  @media (min-width: 600px) {
+    nav .brand-logo {
+      font-size: 2.1rem;
+    }
+  }
 </style>
