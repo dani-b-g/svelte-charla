@@ -2,6 +2,7 @@
   import Prism from "prismjs";
 
   import "prismjs/themes/prism-tomorrow.css";
+  import "prismjs/prism.js";
   import "prismjs/plugins/line-numbers/prism-line-numbers.js";
   import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 
