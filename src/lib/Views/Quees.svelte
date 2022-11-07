@@ -1,8 +1,59 @@
 <script>
   import CodeBlock from "./../Components/CodeBlock.svelte";
+  import { fade } from "svelte/transition";
   // your script goes here
 
-  let code = `console.log('Hola mundo');`;
+  let itsExampleVisible = false;
+
+  let reactCode = new String(`
+        import React, { useState } from 'react';
+
+        export default ( ) =>
+          const [а, setA] = useState(1);
+          const [b, setB) = useState(2);
+          function handleChangeA( event) {
+            setA( +event. target. value);
+          function handleChangeB( event) {
+            setB( +event. target. value);
+            return (
+              <div>
+                <input type= "number" value={a} onChange={handleChangeA}/>
+                <input type= "number" value={b} onChange={handleChangeB}/>
+                <p>{a} + {b} = {a + b}</p>
+              </div>
+            );
+          };`);
+
+  let vueCode = new String(`
+          <div>
+            <input type= "number" v-model. number="a">
+            <input type="number" v-model. number="b">
+            <p>{{a}} + {{b}} = {aa + b}}</p>
+          </div>
+          </template>
+          <script>
+            export default
+              data: function()
+                return
+                  a: 1,
+                  b: 2
+                };
+              }
+  `);
+  let svelteCode = new String(` 
+          <scriptt>
+              let a = 1;
+              let b = 2;
+          </scriptt>
+          <input type= "number" bind:value={a}>
+          <input type= "number" bind:value={b}>
+          <p>{a} + {b} = {a + b}</p>
+
+  `);
+
+  function openModalExamples() {
+    itsExampleVisible = !itsExampleVisible;
+  }
 </script>
 
 <div class="row valign-wrapper">
@@ -11,15 +62,6 @@
   </div>
 </div>
 <div class="row valign-wrapper ">
-  <!-- <div class="col s6 ">
-    <div class="center-align">
-      <img
-        class="center-align "
-        alt="Not found"
-        src="https://firebasestorage.googleapis.com/v0/b/svelte-charla.appspot.com/o/unnamed.png?alt=media&token=e22dddd8-1505-43da-9dc1-0e59e40437f4"
-      />
-    </div>
-  </div> -->
   <div class="col s12">
     <div class="divider" />
     <div class="section">
@@ -126,6 +168,50 @@
             />
           </span>
         </div>
+      </div>
+      <div class="divider" />
+
+      <div class="section">
+        <div class="row">
+          <div class="col s12 center-align">
+            <h5>🥊 Ventajas respecto a sus competidores 🥊</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 center">
+            <span>
+              <img
+                class="responsive-img"
+                alt=""
+                src="https://firebasestorage.googleapis.com/v0/b/svelte-charla.appspot.com/o/Frontend-JavaScript-Frameworks.jpg?alt=media&token=29b1fc82-b851-4b03-99c9-4614d5116e82"
+              />
+            </span>
+            <button
+              class="waves-effect waves-light btn modal-trigger"
+              on:click={openModalExamples}
+              >Ejemplos de código
+            </button>
+          </div>
+        </div>
+        {#if itsExampleVisible}
+          <div transition:fade class="row border">
+            <div class="col s12">
+              <h5>React</h5>
+              <!-- React -->
+              <CodeBlock code={reactCode} />
+            </div>
+            <div class="col s12">
+              <h5>Vue</h5>
+              <!-- Vue -->
+              <CodeBlock code={vueCode} />
+            </div>
+            <div class="col s12">
+              <h5>Svelte</h5>
+              <!-- Svelte -->
+              <CodeBlock code={svelteCode} />
+            </div>
+          </div>
+        {/if}
       </div>
     </div>
   </div>
