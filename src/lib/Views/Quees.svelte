@@ -218,9 +218,6 @@
 </div>
 
 <style>
-  .bold {
-    font-weight: bold;
-  }
   .center {
     margin: auto;
     padding: 10px;
