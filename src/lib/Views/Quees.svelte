@@ -198,17 +198,17 @@
             <div class="col s12">
               <h5>React</h5>
               <!-- React -->
-              <CodeBlock code={reactCode} codeType={'javascript'} />
+              <CodeBlock code={reactCode} codeType={"javascript"} />
             </div>
             <div class="col s12">
               <h5>Vue</h5>
               <!-- Vue -->
-              <CodeBlock code={vueCode} codeType={'javascript'}/>
+              <CodeBlock code={vueCode} codeType={"javascript"} />
             </div>
             <div class="col s12">
               <h5>Svelte</h5>
               <!-- Svelte -->
-              <CodeBlock code={svelteCode} codeType={'javascript'}/>
+              <CodeBlock code={svelteCode} codeType={"javascript"} />
             </div>
           </div>
         {/if}
