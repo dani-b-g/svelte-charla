@@ -8,6 +8,7 @@ import Stores from "./lib/Views/Stores.svelte";
 import SvelteKit from "./lib/Views/SvelteKit.svelte";
 import Preguntas from "./lib/Views/Preguntas.svelte";
 import Reactivos from "./lib/Views/Reactivos.svelte";
+import Animaciones from "./lib/Views/Animaciones.svelte";
 
 const routes = {
   "/": Introduccion,
@@ -19,6 +20,7 @@ const routes = {
   "/sveltekit": SvelteKit,
   "/reactivos": Reactivos,
   "/preguntas": Preguntas,
+  "/animaciones": Animaciones,
   "*": Error404,
 };
 
