@@ -113,7 +113,7 @@
 
 <div class="row valign-wrapper">
   <div class="col s12 center-align">
-    <h3>🐖 Bloques Logicos 🐖</h3>
+    <h3>🐖 Bloques Lógicos 🐖</h3>
   </div>
 </div>
 <div class="row valign-wrapper ">
@@ -131,23 +131,23 @@
           </span>
         </div>
         <div class="col s6 ">
-          En Svelte tenemos los "tipicos" bloques logicos usados en cualquier
+          En Svelte tenemos los "típicos" bloques lógicos usados en cualquier
           lenguaje o frameworks como por ejemplo: <b>IF, FOR-EACH, FOR, etc.</b>
           <br />
           <br />
-          En Svelte tenemos un par de ellos que nos vendran muy bien a la hora de
-          realizar ciertas practicas dentro de nuestra aplicación y son los que vereis
-          mas abajo.
+          En Svelte tenemos un par de ellos que nos vendrán muy bien a la hora de
+          realizar ciertas prácticas dentro de nuestra aplicación y son los que veréis
+          más abajo.
           <br />
           <br />
           Sin duda veo una desventaja en no tener un bloque <b>SWITCH-CASE</b>
-          como en otros frameworks pero creo que compensa por tener el
+          como en otros frameworks, pero creo que compensa por tener el
           <b>AWAIT</b>
           <blockquote>
-            Click aqui {"<( ‵□′)>───>"}
+            Clic {"<( ‵□′)>───>"}
             <a href="https://svelte.dev/docs#template-syntax-if" target="_blank"
-              >aqui</a
-            > para acceder a la documentación.
+              >aquí
+            </a> para acceder a la documentación.
           </blockquote>
         </div>
       </div>
@@ -193,7 +193,7 @@
             {#await promise}
               <p>...cargando</p>
             {:then number}
-              <p>El numero es: {number}</p>
+              <p>El número es: {number}</p>
             {:catch error}
               <p style="color: red">{error.message}</p>
             {/await}

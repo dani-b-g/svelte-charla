@@ -58,7 +58,7 @@
 
 <div class="row valign-wrapper">
   <div class="col s12 center-align">
-    <h3>¿Que es Svelte?</h3>
+    <h3>¿Qué es Svelte?</h3>
   </div>
 </div>
 <div class="row valign-wrapper ">
@@ -77,10 +77,15 @@
         </div>
         <div class="col s6 ">
           <p>
-            Es un framework creado por: <b><i>Rich Harris</i></b> buscaba una forma
-            de mejorar el desempeño de las aplicaciones que desarrollaba, él trabaja
-            cumpliendo ciertas características:
+            Es un framework creado en 2016 por: <b><i>Rich Harris</i></b>, El
+            señor que está disfrutando de ese Crep de la foto.
           </p>
+          <p>
+            Svelte, no es tan joven como parece, pero ha empezado a obtener
+            popularidad estos últimos años. Pero...
+          </p>
+          <h6>Que se buscaba al crear Svelte:</h6>
+          <p />
           <p style="padding-top: 5px;">
             <li>
               Entregar productos con un <b
@@ -98,14 +103,15 @@
               Hacer más <b>liviano el trabajo del navegador del lado cliente</b>
               y
               <b
-                >reducir lo maximo posible la carga de código de librerías o
+                >reducir lo máximo posible la carga de código de librerías o
                 frameworks</b
               > por código JavaScript puro.
             </li>
           </p>
           <div style="padding-top: 25px;">
             <blockquote>
-              En pocas palabras: se hartó y creó su propio framework a su gusto.
+              En pocas palabras: nuestro risueño y goloso compañero de profesion
+              Rich se hartó y creó su propio framework a su gusto.
             </blockquote>
           </div>
         </div>
@@ -115,7 +121,7 @@
     <div class="section">
       <div class="row">
         <div class="col s12 left-align">
-          <h5>Sus caracteristicas 😎👍🏻</h5>
+          <h5>Sus características 😎👍🏻</h5>
         </div>
       </div>
       <div class="row">
@@ -136,13 +142,13 @@
             <li><b>Tiene su propio manejador de estado (Stores).</b></li>
             <li><b>Su sintaxis es sencilla.</b></li>
             <li><b>Totalmente reactivo.</b></li>
-            <li><b>Compilaciones en produccion muy ligeras.</b></li>
+            <li><b>Compilaciones en producción muy ligeras.</b></li>
             <li>
               <b>Tiene una documentación MUY BUENA.</b>
             </li>
             <li>
               <b
-                >Server side rendering (SSR) con SvelteKit (propió de Svelte).</b
+                >Server side rendering (SSR) con SvelteKit (propio de Svelte).</b
               >
             </li>
           </p>
@@ -174,7 +180,7 @@
       <div class="section">
         <div class="row">
           <div class="col s12 center-align">
-            <h5>🥊 Diferencias de código 🥊</h5>
+            <h5>🥊 Mostrar ejemplos 🥊</h5>
           </div>
         </div>
         <div class="row">

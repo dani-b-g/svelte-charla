@@ -91,26 +91,28 @@
         <div class="col s6 ">
           <h5>Modificador $: En svelte y como funciona (?)</h5>
           <br />
-          Me entristece deciros que no es dinero ilimitado, si no
+          Me entristece deciros que no es dinero ilimitado, sino
           <b>una forma de decirle a nuestros componentes y vistas</b>
-          de Svelte que deben "escuchar" todas las modificaciones que tenga la variable
-          o variables de una función pero mejor en un ejemplo.
+          que deben "escuchar" todas las modificaciones que tenga la variable o variables
+          de una función, pero mejor en un ejemplo más abajo.
           <br />
           <br />
-          En conclusion, esto nos puede ayudar a no tener que repetir codigo y que
-          el recalculo de ciertas variables se haga de forma automatica.
+          En conclusión, esto nos puede ayudar a no tener que repetir código y que
+          el recálculo de ciertas variables se haga de forma automática.
           <br /><br />
-          Desventaja y palabra de novato me costo y MUCHO entender como funcionaba,
-          pero para eso os traigo un ejemplo. 😎👍🏻
+          Desventaja y palabra de novato me costó y MUCHO entender e interiorizar
+          como funcionaba, pero para eso estoy aquí. 😎👍🏻
           <br />
           <br />
           <blockquote>
-            Como en el resto de apartados podeis haced click <a
+            <!-- svelte-ignore security-anchor-rel-noreferrer -->
+            Como en el resto de apartados podéis haced clic
+            <a
               href="https://svelte.dev/docs#component-format-script-3-$-marks-a-statement-as-reactive"
               target="_blank"
             >
-              👉🏻 aqui</a
-            > para acceder a la documentación 100% oficial.
+              👉🏻 aquí
+            </a> para acceder a la documentación 100% oficial.
           </blockquote>
         </div>
         <div class="col s6">
@@ -127,7 +129,7 @@
     <div class="divider" />
     <div class="section">
       <div class="row valign-wrapper">
-        <div class="col s12 center-align"><h5>Ejemplo y codigo</h5></div>
+        <div class="col s12 center-align"><h5>Ejemplo y código</h5></div>
       </div>
       <div class="row valign-wrapper">
         <div class="col s6 center-align">
