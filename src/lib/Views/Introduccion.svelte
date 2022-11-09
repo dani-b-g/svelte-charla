@@ -22,10 +22,9 @@
     <div class="section">
       <h5>¿Quien soy?</h5>
       <p>
-        Soy <span class="bold">
-          Daniel Barriga Grados programador Front-End</span
-        >. Actualmente trabajo en Vue.js pero soy una persona inquieta y llevo
-        unos meses investigando
+        Soy <span class="bold"> Daniel Barriga programador Front-End</span>.
+        Actualmente trabajo en Vue.js pero soy una persona inquieta y llevo unos
+        meses investigando
         <span class="bold">"Svelte"</span> que es de lo que vengo hablaros en este
         rato.
       </p>
