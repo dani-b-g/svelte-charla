@@ -2,6 +2,7 @@
   // @ts-nocheck
 
   import { onMount, onDestroy, beforeUpdate, afterUpdate, tick } from "svelte";
+  import { fade } from "svelte/transition";
   import { db } from "../../firebase.js";
   import {
     addDoc,
@@ -19,6 +20,7 @@
   let formPregunta = "";
   let formUser = "";
   let preguntas = [];
+  let loading = true;
 
   $: {
     if (formPregunta.length >= 5 && formPregunta.length <= 165) {
@@ -29,8 +31,8 @@
   }
 
   function onKeyPress(k) {
-    if (k.charCode===13 && !disabledAddBtn) {
-      addQuestion()
+    if (k.charCode === 13 && !disabledAddBtn) {
+      addQuestion();
     }
   }
 
@@ -41,6 +43,7 @@
     collection(db, "preguntas"),
     (querySnapshot) => {
       preguntas = querySnapshot.docs.map(function (doc) {
+        loading = false;
         return {
           ...doc.data(),
           id: doc.id,
@@ -199,8 +202,24 @@
   </div>
 </div>
 <div class="divider" />
-<div class="row">
-  {#if preguntas.length > 0}
+<div class="row valign-wrapper">
+  {#if loading}
+    <div style="margin-top: 10px;" class="col s12 center-align">
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue-only">
+          <div class="circle-clipper left">
+            <div class="circle" />
+          </div>
+          <div class="gap-patch">
+            <div class="circle" />
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle" />
+          </div>
+        </div>
+      </div>
+    </div>
+  {:else if preguntas.length > 0}
     <div class="col s10 offset-s1 center-align offset-s1">
       <table class="responsive-table centered striped">
         <thead>
@@ -213,7 +232,7 @@
         </thead>
         <tbody>
           {#each preguntas as p}
-            <tr>
+            <tr transition:fade>
               <td>{p.Pregunta}</td>
               <td>{p.Usuario}</td>
               {#if p.Estado}
@@ -224,6 +243,7 @@
               <td>
                 {#if p.Estado}
                   <button
+                    transition:fade
                     on:click={setDone(p.id, p.Pregunta)}
                     class="btn-small waves-effect waves-light green lighten-1"
                   >
@@ -243,7 +263,7 @@
       </table>
     </div>
   {:else}
-    <div class="col s12 center-align ">
+    <div transition:fade class="col s12 center-align ">
       <h2>No se han realizado preguntas aun.</h2>
     </div>
   {/if}

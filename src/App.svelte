@@ -14,7 +14,7 @@
 <style>
   .content-panel {
     min-height: 80vh !important;
-    padding-top: 7vh !important;
+    padding-top: 2vh !important;
   }
   .float-container {
     background-color: rgba(75, 75, 75, 0.753) !important;
