@@ -224,7 +224,7 @@
               {/if}
               <td>
                 {#if p.Estado}
-                  <button
+                  <button transition:fade
                     on:click={setDone(p.id, p.Pregunta)}
                     class="btn-small waves-effect waves-light green lighten-1"
                   >
