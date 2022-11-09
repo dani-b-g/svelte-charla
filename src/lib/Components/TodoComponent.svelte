@@ -139,7 +139,7 @@
   }
 
   label {
-    color: rgb(255, 255, 255) !important;
+    color: rgb(0, 0, 0) !important;
   }
 
   label:hover button {
