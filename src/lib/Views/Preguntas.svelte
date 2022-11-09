@@ -2,6 +2,7 @@
   // @ts-nocheck
 
   import { onMount, onDestroy, beforeUpdate, afterUpdate, tick } from "svelte";
+  import {fade} from 'svelte/transition'
   import { db } from "../../firebase.js";
   import {
     addDoc,
@@ -142,7 +143,7 @@
   }
 </script>
 
-<div class="row valign-wrapper">
+<div  class="row valign-wrapper">
   <div class="col s12 center-align">
     <h1>Preguntas</h1>
   </div>
@@ -213,7 +214,7 @@
         </thead>
         <tbody>
           {#each preguntas as p}
-            <tr>
+            <tr transition:fade>
               <td>{p.Pregunta}</td>
               <td>{p.Usuario}</td>
               {#if p.Estado}
@@ -223,7 +224,7 @@
               {/if}
               <td>
                 {#if p.Estado}
-                  <button
+                  <button transition:fade
                     on:click={setDone(p.id, p.Pregunta)}
                     class="btn-small waves-effect waves-light green lighten-1"
                   >
@@ -243,7 +244,7 @@
       </table>
     </div>
   {:else}
-    <div class="col s12 center-align ">
+    <div transition:fade class="col s12 center-align ">
       <h2>No se han realizado preguntas aun.</h2>
     </div>
   {/if}

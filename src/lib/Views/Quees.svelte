@@ -174,7 +174,7 @@
       <div class="section">
         <div class="row">
           <div class="col s12 center-align">
-            <h5>🥊 Ventajas respecto a sus competidores 🥊</h5>
+            <h5>🥊 Diferencias de código 🥊</h5>
           </div>
         </div>
         <div class="row">
@@ -198,17 +198,17 @@
             <div class="col s12">
               <h5>React</h5>
               <!-- React -->
-              <CodeBlock code={reactCode} />
+              <CodeBlock code={reactCode} codeType={'javascript'} />
             </div>
             <div class="col s12">
               <h5>Vue</h5>
               <!-- Vue -->
-              <CodeBlock code={vueCode} />
+              <CodeBlock code={vueCode} codeType={'javascript'}/>
             </div>
             <div class="col s12">
               <h5>Svelte</h5>
               <!-- Svelte -->
-              <CodeBlock code={svelteCode} />
+              <CodeBlock code={svelteCode} codeType={'javascript'}/>
             </div>
           </div>
         {/if}
