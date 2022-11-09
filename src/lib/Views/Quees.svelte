@@ -178,16 +178,16 @@
           </div>
         </div>
         <div class="row">
-          <div class="col s12 center">
-            <span>
+          <div class="col s12 center-align">
+            <div>
               <img
                 class="responsive-img"
                 alt=""
                 src="https://firebasestorage.googleapis.com/v0/b/svelte-charla.appspot.com/o/Frontend-JavaScript-Frameworks.jpg?alt=media&token=29b1fc82-b851-4b03-99c9-4614d5116e82"
               />
-            </span>
+            </div>
             <button
-              class="waves-effect waves-light btn modal-trigger"
+              class="waves-effect waves-light btn"
               on:click={openModalExamples}
               >Ejemplos de código
             </button>
