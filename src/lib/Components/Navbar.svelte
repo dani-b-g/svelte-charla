@@ -13,7 +13,7 @@
         <li><a href="/quees" use:link>¿Qué es Svelte?</a></li>
         <li><a href="/primerProyecto" use:link>Primer Proyecto</a></li>
         <li><a href="/BloquesLogicos" use:link>Bloques Lógicos</a></li>
-        <li><a href="/stores" use:link>Stores</a></li>
+        <li><a href="/stores" use:link>Stores y Lifecycle</a></li>
         <li><a href="/sveltekit" use:link>SvelteKit</a></li>
         <li><a href="/reactivos" use:link>Reactivos</a></li>
         <li><a href="/animaciones" use:link>Animaciones</a></li>
