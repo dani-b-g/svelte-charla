@@ -1,8 +1,9 @@
 <script>
   import CodeBlock from "../Components/CodeBlock.svelte";
 
-  let count = 1;
+  import { fade } from "svelte/transition";
 
+  let count = 1;
   // the `$:` means 're-run whenever these values change'
   $: doubled = count * 2;
   $: quadrupled = doubled * 2;
@@ -10,10 +11,18 @@
   function handleClick() {
     count += 1;
   }
+  let count2 = 0;
+
+  $: if (count2 >= 10) {
+    alert(`count2 es demasiado alto`);
+    count2 = 9;
+  }
+
+  function handleClick2() {
+    count2 += 1;
+  }
 
   const exampleCodeJS = new String(`
-        import CodeBlock from "../Components/CodeBlock.svelte";
-
         let count = 1;
 
         $: doubled = count * 2;
@@ -31,6 +40,41 @@
         <p>{count} * 2 = {doubled}</p>
         <p>{doubled} * 2 = {quadrupled}</p>
 
+  `);
+
+  let flagEjemploVariables = false;
+  let flagEjemploFuncion = false;
+
+  function showEjemploVariables() {
+    flagEjemploVariables = !flagEjemploVariables;
+    flagEjemploFuncion = false;
+  }
+  function showEjemploFunciones() {
+    flagEjemploFuncion = !flagEjemploFuncion;
+    flagEjemploVariables = false;
+  }
+
+  const exampleCodeFNHtml = new String(`
+        <div class="col s6 center-align ">
+            <button class="waves-effect waves-light btn" on:click={handleClick2}>
+                Clicked {count2} {count2 === 1 ? 'time' : 'times'}
+            </button>
+        </div>
+
+  
+  `);
+  const exampleCodeFnJS = new String(`
+        let count2 = 0;
+
+        $: if (count2 >= 10) {
+            alert("count2 es demasiado alto");
+            count2 = 9;
+        }
+
+        function handleClick2() {
+            count2 += 1;
+        }
+  
   `);
 </script>
 
@@ -82,25 +126,59 @@
     </div>
     <div class="divider" />
     <div class="section">
-      <div class="row">
+      <div class="row valign-wrapper">
         <div class="col s12 center-align"><h5>Ejemplo y codigo</h5></div>
       </div>
-
-      <div class="row border valign-wrapper">
-        <div class="col s6 center-align ">
-          <button class="waves-effect waves-light btn" on:click={handleClick}>
-            Count: {count}
-          </button>
-          <h5>{count} * 2 = {doubled}</h5>
-          <h5>{doubled} * 2 = {quadrupled}</h5>
+      <div class="row valign-wrapper">
+        <div class="col s6 center-align">
+          <button
+            on:click={showEjemploVariables}
+            class="btn waves-effect waves-light">Ejemplo Simple</button
+          >
         </div>
-        <div class="col s6">
-          <h6>JS</h6>
-          <CodeBlock code={exampleCodeJS} codeType={"javascript"} />
-          <h6>HTML</h6>
-          <CodeBlock code={exampleCodeHtml} codeType={"html"} />
+        <div class="col s6 center-align">
+          <button
+            on:click={showEjemploFunciones}
+            class="btn waves-effect waves-light">Ejemplo Condicionales</button
+          >
         </div>
       </div>
+      {#if flagEjemploVariables}
+        <div transition:fade class="row border valign-wrapper">
+          <div class="col s6 center-align ">
+            <button class="waves-effect waves-light btn" on:click={handleClick}>
+              Count: {count}
+            </button>
+            <h5>{count} * 2 = {doubled}</h5>
+            <h5>{doubled} * 2 = {quadrupled}</h5>
+          </div>
+          <div class="col s6">
+            <h6>JS</h6>
+            <CodeBlock code={exampleCodeJS} codeType={"javascript"} />
+            <h6>HTML</h6>
+            <CodeBlock code={exampleCodeHtml} codeType={"html"} />
+          </div>
+        </div>
+      {/if}
+      {#if flagEjemploFuncion}
+        <div transition:fade class="row border valign-wrapper">
+          <div class="col s6 center-align ">
+            <button
+              class="waves-effect waves-light btn"
+              on:click={handleClick2}
+            >
+              Clicked {count2}
+              {count2 === 1 ? "time" : "times"}
+            </button>
+          </div>
+          <div class="col s6">
+            <h6>JS</h6>
+            <CodeBlock code={exampleCodeFnJS} codeType={"javascript"} />
+            <h6>HTML</h6>
+            <CodeBlock code={exampleCodeFNHtml} codeType={"html"} />
+          </div>
+        </div>
+      {/if}
     </div>
   </div>
 </div>
