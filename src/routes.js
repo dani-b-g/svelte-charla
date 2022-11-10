@@ -9,6 +9,7 @@ import SvelteKit from "./lib/Views/SvelteKit.svelte";
 import Preguntas from "./lib/Views/Preguntas.svelte";
 import Reactivos from "./lib/Views/Reactivos.svelte";
 import Animaciones from "./lib/Views/Animaciones.svelte";
+import Despedida from "./lib/Views/Despedida.svelte";
 
 const routes = {
   "/": Introduccion,
@@ -21,6 +22,7 @@ const routes = {
   "/reactivos": Reactivos,
   "/preguntas": Preguntas,
   "/animaciones": Animaciones,
+  "/despedida": Despedida,
   "*": Error404,
 };
 
