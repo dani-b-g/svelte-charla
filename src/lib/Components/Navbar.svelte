@@ -10,8 +10,10 @@
       <a href="/" class="brand-logo right">Svelte </a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="/" use:link>Introducción</a></li>
-        <li><a href="/quees" use:link>¿Que es Svelte?</a></li>
-        <li><a href="/primerProyecto" use:link>Primer Proyecto</a></li>
+        <li><a href="/quees" use:link>¿Qué es Svelte?</a></li>
+        <li>
+          <a href="/primerProyecto" use:link>Primer Proyecto y Lifecycle</a>
+        </li>
         <li><a href="/BloquesLogicos" use:link>Bloques Lógicos</a></li>
         <li><a href="/stores" use:link>Stores</a></li>
         <li><a href="/sveltekit" use:link>SvelteKit</a></li>
