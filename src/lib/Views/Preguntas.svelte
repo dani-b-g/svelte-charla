@@ -42,8 +42,8 @@
   onSnapshot(
     collection(db, "preguntas"),
     (querySnapshot) => {
+      loading = false;
       preguntas = querySnapshot.docs.map(function (doc) {
-        loading = false;
         return {
           ...doc.data(),
           id: doc.id,
