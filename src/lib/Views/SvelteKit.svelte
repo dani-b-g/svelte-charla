@@ -4,7 +4,7 @@
 
 <div class="row valign-wrapper">
   <div class="col s12 center-align">
-    <h3>🤖 SvelteKit 🤖</h3>
+    <h4>🤖 SvelteKit 🤖</h4>
   </div>
   <!-- la mejor opcion para hacer un SSR(server Site Rendering) -->
 </div>
@@ -13,7 +13,7 @@
     <div class="divider" />
     <div class="section">
       <div class="row valign-wrapper">
-        <div class="col s6 center">
+        <div class="col s6 center-align">
           <span>
             <img
               class="responsive-img"

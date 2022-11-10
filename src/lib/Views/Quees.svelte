@@ -58,7 +58,7 @@
 
 <div class="row valign-wrapper">
   <div class="col s12 center-align">
-    <h3>¿Qué es Svelte?</h3>
+    <h4>¿Qué es Svelte?</h4>
   </div>
 </div>
 <div class="row valign-wrapper ">
