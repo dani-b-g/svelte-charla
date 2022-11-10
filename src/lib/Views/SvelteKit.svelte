@@ -4,61 +4,73 @@
 
 <div class="row valign-wrapper">
   <div class="col s12 center-align">
-    <h3>SvelteKit la mejor opcion para hacer un SSR (server Site Rendering)</h3>
+    <h4>🤖 SvelteKit 🤖</h4>
   </div>
+  <!-- la mejor opcion para hacer un SSR(server Site Rendering) -->
 </div>
 <div class="row valign-wrapper ">
   <div class="col s12">
     <div class="divider" />
     <div class="section">
-      <div class="row">
-        <div class="col s6 center">
+      <div class="row valign-wrapper">
+        <div class="col s6 center-align">
           <span>
             <img
               class="responsive-img"
               alt=""
-              src="https://firebasestorage.googleapis.com/v0/b/svelte-charla.appspot.com/o/richHarris.jpeg?alt=media&token=e3d68696-39c8-4579-8941-3eb9ca3b00dd"
+              src="https://firebasestorage.googleapis.com/v0/b/svelte-charla.appspot.com/o/svelteKiticon.jpg?alt=media&token=5694c1cf-f7c5-4923-83a5-67aa3b551b7f"
             />
           </span>
         </div>
         <div class="col s6 ">
+          <h5>¿Que es?</h5>
+
           <p>
-            Es un framework creado por: <b><i>Rich Harris</i></b> buscaba una forma
-            de mejorar el desempeño de las aplicaciones que desarrollaba, él trabaja
-            cumpliendo ciertas características:
+            SveltKit es una librería que usa Svelte para crear aplicaciones de
+            alto rendimiento con todas las mejores prácticas modernas, es decir,
+            todas las siguientes:
           </p>
-          <p style="padding-top: 5px;">
-            <li>
-              Entregar productos con un <b
-                >excelente rendimiento y fácil desarrollo.</b
-              >
-            </li>
-            <li>
-              Que la librería o framework tuviera una <b
-                >curva de aprendizaje muy corta</b
-              >
-              para que otras personas puedan integrarlo en sus proyectos sin mucha
-              complicación.
-            </li>
-            <li>
-              Hacer más <b>liviano el trabajo del navegador del lado cliente</b>
-              y
-              <b
-                >reducir lo maximo posible la carga de código de librerías o
-                frameworks</b
-              > por código JavaScript puro.
-            </li>
-          </p>
-          <div style="padding-top: 25px;">
-            <blockquote>
-              En pocas palabras: se hartó y creó su propio framework a su gusto.
-            </blockquote>
-          </div>
+          <li>
+            <b>Optimizadores de compilación:</b> Carga y compila solo el mínimo código
+            necesario para su funcionamiento (esto ya lo hace svelte "normal")
+          </li>
+          <li>
+            <i><b>Service workers:</b></i> para que la aplicación pueda funcionar
+            sin conexión
+          </li>
+          <li>
+            <i><b>Prefetch:</b></i> de la aplicación antes que el usuario inicie
+            su navegación.
+          </li>
+          <li>
+            <b>Renderizado configurable </b> en tiempo de ejecución o en tiempo de
+            compilación
+          </li>
+          <li>
+            <b>SEO 😎👍🏻</b>
+          </li>
+          <li>
+            <b>Server Side Rendering:</b> gracias a SvelteKit puedes hacer webs SSR
+          </li>
+          <blockquote>
+            En este caso no os puedo traer un ejemplo al uso, pero si queréis
+            ver
+            <!-- svelte-ignore security-anchor-rel-noreferrer -->
+            uno os dejo el enlace
+            <a
+              href="https://stackblitz.com/edit/sveltekit-example"
+              target="_blank">aquí</a
+            >
+            <!-- svelte-ignore security-anchor-rel-noreferrer -->
+            y <a href="https://kit.svelte.dev/docs" target="_blank">aquí</a> el de
+            la documentación de SveltKit
+          </blockquote>
         </div>
       </div>
+      <div class="divider" />
     </div>
-    <div class="divider" />
   </div>
+  <div class="divider" />
 </div>
 
 <style>

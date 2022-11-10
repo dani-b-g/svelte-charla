@@ -113,7 +113,7 @@
 
 <div class="row valign-wrapper">
   <div class="col s12 center-align">
-    <h3>🐖 Bloques Lógicos 🐖</h3>
+    <h4>🐖 Bloques Lógicos 🐖</h4>
   </div>
 </div>
 <div class="row valign-wrapper ">
