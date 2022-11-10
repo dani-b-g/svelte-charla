@@ -31,7 +31,7 @@
             todas las siguientes:
           </p>
           <li>
-            <b>Optimizadores de compilacion:</b> Carga y compila solo el mínimo código
+            <b>Optimizadores de compilación:</b> Carga y compila solo el mínimo código
             necesario para su funcionamiento (esto ya lo hace svelte "normal")
           </li>
           <li>
