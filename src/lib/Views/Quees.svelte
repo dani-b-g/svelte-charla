@@ -1,7 +1,6 @@
 <script>
   import CodeBlock from "./../Components/CodeBlock.svelte";
   import { fade } from "svelte/transition";
-  // your script goes here
 
   let itsExampleVisible = false;
 
@@ -180,7 +179,7 @@
       <div class="section">
         <div class="row">
           <div class="col s12 center-align">
-            <h5>🥊 Mostrar ejemplos 🥊</h5>
+            <h5>🥊 ¡Comparamos! 🥊</h5>
           </div>
         </div>
         <div class="row">
