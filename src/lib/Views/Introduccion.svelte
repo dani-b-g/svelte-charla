@@ -62,7 +62,7 @@
       <p>
         He creado un apartado de preguntas para poder añadirlas durante lo largo
         de la presentación y resolverlas al final, si os surge alguna podéis
-        entrar en el apartado de preguntas o haciendo clic
+        entrar en el apartado de preguntas o haciendo click
       </p>
       <a href="/preguntas" use:link
         ><button class="btn btn orange">aquí</button></a

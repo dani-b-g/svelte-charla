@@ -106,7 +106,7 @@
           <br />
           <blockquote>
             <!-- svelte-ignore security-anchor-rel-noreferrer -->
-            Como en el resto de apartados podéis haced clic
+            Como en el resto de apartados podéis haced click
             <a
               href="https://svelte.dev/docs#component-format-script-3-$-marks-a-statement-as-reactive"
               target="_blank"
