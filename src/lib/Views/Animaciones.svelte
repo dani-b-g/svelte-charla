@@ -83,8 +83,9 @@
       <blockquote>
         <!-- svelte-ignore security-anchor-rel-noreferrer -->
         En este caso os voy a invitar a ver el codigo en mi
-        <a href="https://github.com/dani-b-g/svelte-charla" target="_blank"
-          >GitHub personal 🐵</a
+        <a
+          href="https://github.com/dani-b-g/svelte-charla/blob/master/src/lib/Components/TodoComponent.svelte"
+          target="_blank">GitHub personal 🐵</a
         >
       </blockquote>
     </div>
