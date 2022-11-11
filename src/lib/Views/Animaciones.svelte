@@ -55,7 +55,7 @@
           <br />
           <blockquote>
             <!-- svelte-ignore security-anchor-rel-noreferrer -->
-            🎈 Como siempre os dejo por
+            🎈 Como siempre, os dejo por
             <a
               href="https://svelte.dev/docs#run-time-svelte-motion"
               target="_blank">aquí</a
