@@ -150,8 +150,8 @@
     <h1>Preguntas</h1>
   </div>
 </div>
-<div class="row ">
-  <div class="col offset-s s3 ">
+<div class="row valign-wrapper">
+  <div class="col s3 ">
     <div class="input-field">
       <i class="material-icons prefix">person</i>
       <input
@@ -294,6 +294,7 @@
   }
   label {
     color: rgb(255, 255, 255) !important;
+    padding-left: 3px;
   }
 
   .center {

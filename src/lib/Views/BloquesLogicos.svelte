@@ -11,7 +11,7 @@
 
   async function getRandomNumber() {
     const res = await fetch(
-      `http://www.randomnumberapi.com/api/v1.0/random?min=1&max=10&count=1`
+      `https://www.randomnumberapi.com/api/v1.0/random?min=1&max=10&count=1`
     );
     const text = await res.text();
 
@@ -144,7 +144,7 @@
           como en otros frameworks, pero creo que compensa por tener el
           <b>AWAIT</b>
           <blockquote>
-            Clic {"<( ‵□′)>───>"}
+            Click {"<( ‵□′)>───>"}
             <a href="https://svelte.dev/docs#template-syntax-if" target="_blank"
               >aquí
             </a> para acceder a la documentación.

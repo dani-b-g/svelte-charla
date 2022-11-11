@@ -78,7 +78,7 @@
         <div class="col s6 ">
           <p>
             Es un framework creado en 2016 por: <b><i>Rich Harris</i></b>, El
-            señor que está disfrutando de ese Crep de la foto.
+            señor que está disfrutando de ese crep en la foto.
           </p>
           <p>
             Svelte, no es tan joven como parece, pero ha empezado a obtener
@@ -110,8 +110,8 @@
           </p>
           <div style="padding-top: 25px;">
             <blockquote>
-              En pocas palabras: nuestro risueño y goloso compañero de profesion
-              Rich se hartó y creó su propio framework a su gusto.
+              En pocas palabras, Rich se hartó y creó su propio framework a su
+              gusto.
             </blockquote>
           </div>
         </div>
