@@ -1,47 +1,70 @@
-# Svelte + Vite
+# svelte-charla
 
-This template should help get you started developing with Svelte in Vite.
+'svelte-charla' is a web-based presentation about Svelte, built using Svelte and Vite. It aims to provide an interactive and engaging way to learn about the Svelte framework.
 
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+VS Code will also prompt you to install recommended extensions found in `.vscode/extensions.json` when you open the project.
 
-## Need an official Svelte framework?
+## Getting Started
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+To run the project locally, follow these steps:
 
-## Technical considerations
+1.  **Install dependencies:**
+    Open your terminal in the project root and run:
+    ```bash
+    npm install
+    ```
 
-**Why use this over SvelteKit?**
+2.  **Run the development server:**
+    After the installation is complete, run:
+    ```bash
+    npm run dev
+    ```
+    The application will typically be available at `http://localhost:5173` (or another port if 5173 is in use, Vite will indicate this in the terminal).
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+## Linting and Formatting
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+This project uses ESLint for linting and Prettier for code formatting to maintain code quality and consistency.
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+*   **Lint the code:**
+    To check for linting errors, run:
+    ```bash
+    npm run lint
+    ```
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+*   **Format the code:**
+    To automatically format the code according to Prettier rules, run:
+    ```bash
+    npm run format
+    ```
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+## Deployment
 
-**Why include `.vscode/extensions.json`?**
+The project can be deployed in a couple of ways:
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+*   **Firebase Hosting:**
+    The project is configured for deployment to Firebase Hosting. You can deploy manually by running:
+    ```bash
+    npm run deploy
+    ```
+    This command will first build the project and then deploy it to Firebase. Deployment to Firebase is also automated via GitHub Actions on pushes and pull requests to specific branches (e.g., `main` or `master`).
 
-**Why enable `checkJs` in the JS template?**
+*   **GitHub Pages:**
+    (Coming Soon) Configuration for deploying to GitHub Pages will also be added.
 
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
+## Technical Considerations
 
 **Why is HMR not preserving my local component state?**
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+Hot Module Replacement (HMR) state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+If you have state that's important to retain within a component, consider creating an external Svelte store, which would not be replaced by HMR.
 
-```js
+```javascript
 // store.js
 // An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+import { writable } from 'svelte/store';
+export default writable(0);
 ```
